@@ -3,6 +3,7 @@
 '''This program is my attempt at making a calculator to make the process of calculating margin requirements and the
 value of a trades movements with ease, allowing the user to focus more on his strategy than bing worried about going
 through many steps to know how much you stand to gain or lose'''
+#Just updated the repository name. This is to test if it works
 
 #modules imported for further use in the code for implementation of the swap feature.
 
