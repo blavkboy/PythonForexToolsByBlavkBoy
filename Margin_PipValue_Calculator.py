@@ -14,6 +14,8 @@ CurrentPrice += float(input('Enter Current position/price: '))
 Contract_Size += float(input("Currency pairs[1] Other Products[2]. Enter corresponding number: "))
 TradeType = ''
 
+#make git work
+print('We hope this code works')
 if (Contract_Size == 1):
     Contract_Size1 = int(input('Standard[1] or Micro[2]: '))
     if (Contract_Size1 == 1):
