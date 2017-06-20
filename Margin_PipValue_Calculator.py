@@ -45,7 +45,7 @@ if (TradeType == 'Stock'):
     print('Margin requirement for the desired trade: ' + str(Actual_Value))
     proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
     if (proceed_to_make_money == 'y'):
-        Closing_Price = float(input("Enter closing price: "))
+        Closing_Price = float(input("Enter closing price:  "))
         TheDifference = Closing_Price - CurrentPrice
         if (TheDifference < 0):
             TheDifference *= -1
