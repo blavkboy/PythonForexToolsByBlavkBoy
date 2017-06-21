@@ -40,7 +40,7 @@ Lot_Size = float(input('Enter lot size: '))
 TradeSize = Lot_Size * Contract_Size
 if (TradeType == 'Stock'):
     TradeSize /= Contract_Size
-    TheRealTradeSize = TradeSize / Leverage
+    TheRealTradeSize = TradeSize
     Actual_Value = TheRealTradeSize * CurrentPrice
     print('Margin requirement for the desired trade: ' + str(Actual_Value))
     proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
