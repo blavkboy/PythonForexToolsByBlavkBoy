@@ -46,7 +46,7 @@ if (TradeType == 'Stock'):
 elif (TradeType != 'Stock'):
     TheRealTradeSize = TradeSize / Leverage
     Actual_Value = TheRealTradeSize * CurrentPrice
-    print('Margin requirement for the desired trade: ' + str(Actual_Value * 0.1))
+    print('Margin requirement for the desired trade: ' + str(Actual_Value))
     proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
 if (proceed_to_make_money == 'y'):
     Closing_Price = float(input("Enter closing price:  "))
@@ -58,5 +58,5 @@ if (TradeType == 'Stock'):
         print("Total price difference:" + str(TheDifference))
         print("Please be advised, you should convert this price to your currency to know the value to you.")
 elif (TradeType != 'Stock'):
-        print("Total price difference:" + str(TheDifference * 0.01))
+        print("Total price difference:" + str(TheDifference * Lot_Size))
         print("Please be advised, you should convert this price to your currency to know the value to you.")
