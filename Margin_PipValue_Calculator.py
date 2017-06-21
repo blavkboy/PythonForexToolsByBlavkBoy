@@ -3,9 +3,9 @@
 '''This program is my attempt at making a calculator to make the process of calculating margin requirements and the
 value of a trades movements with ease, allowing the user to focus more on his strategy than bing worried about going
 through many steps to know how much you stand to gain or lose'''
-#Just updated the repository name. This is to test if it work
+# Just updated the repository name. This is to test if it work
 
-#modules imported for further use in the code for implementation of the swap feature.
+# modules imported for further use in the code for implementation of the swap feature.
 
 CurrentPrice = 0.0
 Contract_Size = 0
@@ -14,7 +14,7 @@ Lot_Size = 0
 CurrentPrice += float(input('Enter Current position/price: '))
 Contract_Size += float(input("Currency pairs[1] Other Products[2]. Enter corresponding number: "))
 TradeType = ''
-
+TheDifference = 0
 
 if (Contract_Size == 1):
     Contract_Size1 = int(input('Standard[1] or Micro[2]: '))
@@ -28,13 +28,11 @@ else:
     if (float(Contract_Size == 2)):
         Contract_Size = int(input('Enter desired contract size:'))
         stock_or_Not = input("Is this item a stock option: Enter [y] or [n]")
-        if (stock_or_Not == 'y' ):
+        if (stock_or_Not == 'y'):
             TradeType = 'Stock'
             pass
         elif (stock_or_Not == 'n'):
             Leverage = float(input('Enter leverage: '))
-
-
 
 Lot_Size = float(input('Enter lot size: '))
 TradeSize = Lot_Size * Contract_Size
@@ -45,30 +43,20 @@ if (TradeType == 'Stock'):
     Actual_Value = TheRealTradeSize * CurrentPrice
     print('Margin requirement for the desired trade: ' + str(Actual_Value))
     proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
-    if (proceed_to_make_money == 'y'):
-        Closing_Price = float(input("Enter closing price:  "))
-        TheDifference = Closing_Price - CurrentPrice
-        if (TheDifference < 0):
-            TheDifference *= -1
-        else:
-            pass
-        TheDifference *= Contract_Size
-        print("Total price difference:" + str(TheDifference))
-        print("Please be advised, you should convert this price to your currency to know the value to you.")
 elif (TradeType != 'Stock'):
     TheRealTradeSize = TradeSize / Leverage
     Actual_Value = TheRealTradeSize * CurrentPrice
     print('Margin requirement for the desired trade: ' + str(Actual_Value * 0.1))
     proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
-    if (proceed_to_make_money == 'y'):
-        Closing_Price = float(input("Enter closing price: "))
-        TheDifference = Closing_Price - CurrentPrice
-        if (TheDifference < 0):
-            TheDifference *= -1
-        else:
-            pass
-        TheDifference *= Contract_Size
+if (proceed_to_make_money == 'y'):
+    Closing_Price = float(input("Enter closing price:  "))
+    TheDifference = Closing_Price - CurrentPrice
+    if (TheDifference < 0):
+        TheDifference *= -1
+TheDifference *= Contract_Size
+if (TradeType == 'Stock'):
+        print("Total price difference:" + str(TheDifference))
+        print("Please be advised, you should convert this price to your currency to know the value to you.")
+elif (TradeType != 'Stock'):
         print("Total price difference:" + str(TheDifference * 0.01))
         print("Please be advised, you should convert this price to your currency to know the value to you.")
-    else:
-        pass
