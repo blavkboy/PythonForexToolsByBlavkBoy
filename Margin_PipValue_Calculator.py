@@ -38,6 +38,7 @@ else:
 
 Lot_Size = float(input('Enter lot size: '))
 TradeSize = Lot_Size * Contract_Size
+
 if (TradeType == 'Stock'):
     TradeSize /= Contract_Size
     TheRealTradeSize = TradeSize
@@ -54,21 +55,20 @@ if (TradeType == 'Stock'):
         TheDifference *= Contract_Size
         print("Total price difference:" + str(TheDifference))
         print("Please be advised, you should convert this price to your currency to know the value to you.")
+elif (TradeType != 'Stock'):
+    TheRealTradeSize = TradeSize / Leverage
+    Actual_Value = TheRealTradeSize * CurrentPrice
+    print('Margin requirement for the desired trade: ' + str(Actual_Value * 0.1))
+    proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
+    if (proceed_to_make_money == 'y'):
+        Closing_Price = float(input("Enter closing price: "))
+        TheDifference = Closing_Price - CurrentPrice
+        if (TheDifference < 0):
+            TheDifference *= -1
+        else:
+            pass
+        TheDifference *= Contract_Size
+        print("Total price difference:" + str(TheDifference * 0.01))
+        print("Please be advised, you should convert this price to your currency to know the value to you.")
     else:
         pass
-TheRealTradeSize = TradeSize / Leverage
-Actual_Value = TheRealTradeSize * CurrentPrice
-print('Margin requirement for the desired trade: ' + str(Actual_Value * 0.1))
-proceed_to_make_money = input("Claculate price action? Type 'y' or 'n' as your answer: ")
-if (proceed_to_make_money == 'y'):
-    Closing_Price = float(input("Enter closing price: "))
-    TheDifference = Closing_Price - CurrentPrice
-    if (TheDifference < 0):
-        TheDifference *= -1
-    else:
-        pass
-    TheDifference *= Contract_Size
-    print("Total price difference:" + str(TheDifference * 0.01))
-    print("Please be advised, you should convert this price to your currency to know the value to you.")
-else:
-    pass
