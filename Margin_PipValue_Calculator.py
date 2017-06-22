@@ -5,8 +5,6 @@ value of a trades movements with ease, allowing the user to focus more on his st
 through many steps to know how much you stand to gain or lose'''
 # Just updated the repository name. This is to test if it work
 
-# modules imported for further use in the code for implementation of the swap feature.
-
 CurrentPrice = 0.0
 Contract_Size = 0
 Leverage = 1
